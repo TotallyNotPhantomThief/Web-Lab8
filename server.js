@@ -10,6 +10,20 @@ const courses = [
 const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require('path');
+let requestCount = 0;
+const requestLogger = (req, res, next) => {
+  const timestamp = new Date().toISOString();
+  console.log(`${req.method} ${req.url} ${timestamp}`);
+  
+  next();
+};
+app.use(requestLogger);
+const requestCounter = (req, res, next) => {
+  requestCount++;
+  next();
+}
+app.use(requestCounter);
+
 
 app.use(express.static(path.join(__direname, 'public')));
 
@@ -56,7 +70,7 @@ app.get('/api/admin', (req, res) => {
   res.status(403).json({"error":"Forbidden"});
 });
 app.get('/api/stats',(req,res)=>{
-  res.json({"requestsServed": })
+  res.json({"requestsServed": requestCount })
 });
 
 app.use((req, res) => {
