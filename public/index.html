@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Lab 8</title>
+    <link rel="stylesheet" href="styles.css">   
+</head>    
+<body>
+ <h1>API Buttons</h1>
+ <div id="button-container">
+<button onclick="testApi('/api/courses')">GET Courses</button>
+<button onclick="testApi('/api/status')">GET Status</button>
+<button onclick="testApi('/api/headers')">GET Headers</button>
+<button onclick="testApi('/api/subscribe')">POST Subscribe</button>
+<button onclick="testApi('/api/admin')">GET Admin</button>
+<button onclick="testApi('/api/stats')">GET Stats</button>
+<button onclick="testApi('/api/yok')">Yok</button>
+</div>
+<h2>API Response:</h2>
+<pre id="responseContainer">Results </pre>
+<script src="app.js"></script>
+</body>
+</html>
