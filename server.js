@@ -1,5 +1,11 @@
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const courses = [
   { id: 1, title: 'Course 1', credits: 1 },
   { id: 2, title: 'Course 2', credits: 3 },
@@ -9,7 +15,6 @@ const courses = [
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const path = require('path');
 let requestCount = 0;
 const requestLogger = (req, res, next) => {
   const timestamp = new Date().toISOString();
@@ -25,7 +30,7 @@ const requestCounter = (req, res, next) => {
 app.use(requestCounter);
 
 
-app.use(express.static(path.join(__direname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
@@ -74,7 +79,7 @@ app.get('/api/stats',(req,res)=>{
 });
 
 app.use((req, res) => {
-  if (req.path.startsWith('/api/')) {
+  if (req.path.startsWith('/api')) {
     res.status(404).json({ "error": "Not found" });
   } else{
     res.status(404).send('Page cannot be found');
