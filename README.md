@@ -116,3 +116,37 @@ Connection: keep-alive
 Keep-Alive: timeout=5
 
 {"requestsServed":9}
+
+
+
+-------Questions-------
+1. İt automaticlly gets to 404 or not found. The reason we put that into
+end cause of if the request falls that deep(without actually getting 
+called) its an error.
+
+2.Timeout happens and it prints 1 log 
+
+3.Cause 201 means it created. 404 implies a user error which means that the server you requsetsed does not exists.
+
+4.Cause its flexiable to other platforms.
+
+5.Its machine/env specific so it can break in other peoples machines. Install their own "npm install"
+
+6.It gives an File not found error cause of it being not in pc itself rather being in server. Its called Cross-Origin Resource Sharing.
+
+
+
+
+
+
+
+We write those jsons neatly with pre in html that if we confirm its an json we stringtify it.
+
+
+
+
+
+
+
+
+

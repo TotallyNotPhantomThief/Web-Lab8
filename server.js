@@ -16,6 +16,9 @@ const courses = [
 const app = express();
 const PORT = process.env.PORT || 3000;
 let requestCount = 0;
+
+
+
 const requestLogger = (req, res, next) => {
   const timestamp = new Date().toISOString();
   console.log(`${req.method} ${req.url} ${timestamp}`);
