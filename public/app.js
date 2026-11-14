@@ -1,4 +1,4 @@
-async function apiSubs(url,method = 'GET') {
+async function testApi(url, method = 'GET') {
     const result = document.getElementById('responseContainer');
     
     try {
@@ -6,7 +6,7 @@ async function apiSubs(url,method = 'GET') {
         
         
         let data;
-        const contentType = response.headers.get('content-type');
+        const contentType = response.headers.get('contentType');
         if (contentType && contentType.includes('application/json')) {
             data = await response.json();
         } else {
@@ -19,3 +19,11 @@ async function apiSubs(url,method = 'GET') {
     }
 
 }
+
+const buttons = document.querySelectorAll('#buttonContainer button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        this.classList.add('clicked');
+    });
+});

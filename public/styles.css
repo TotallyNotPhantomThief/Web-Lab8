@@ -1,0 +1,17 @@
+#buttonContainer{
+    display:flex;
+    gap: 10px;
+    font-family: 'Arial', sans-serif;
+    background-color: blueviolet;
+    transition-duration: 0.3s;
+    color:white;
+}
+#buttonContainer:hover{
+    background-color:black;
+    color:white;
+}
+
+#buttonContainer button.clicked{
+    background-color: red;
+    color: white;
+}
